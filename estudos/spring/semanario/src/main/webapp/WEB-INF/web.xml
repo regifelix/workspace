@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <description>semanario</description>
+    <display-name>semanario</display-name>
+    <distributable />
+
+    <!-- listener que inicializa o WebApplicationContext do spring -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!--
+        suporte a beans com escopo de request, session e global session   utilizados fora do DispatcherServlet do spring
+    -->
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+
+  <!-- arquivos de configuracoes dos beans do spring  -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/config/*.xml</param-value>
+    </context-param>
+
+
+    <context-param>
+        <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+        <param-value>.xhtml</param-value>
+    </context-param>
+    <context-param>
+        <param-name>facelets.REFRESH_PERIOD</param-name>
+        <param-value>-1</param-value>
+    </context-param>
+    <context-param>
+        <param-name>facelets.DEVELOPMENT</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <context-param>
+        <param-name>com.sun.faces.externalizeJavaScript</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+        <param-value>client</param-value>
+    </context-param>
+    <context-param>
+        <param-name>com.sun.faces.compressViewState</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <description>Evita que o JSF escreva atributo id em elementos input do tipo hidden no XHTML que vai para o cliente.</description>
+        <param-name>com.sun.faces.enableViewStateIdRendering</param-name>
+        <param-value>false</param-value>
+    </context-param>
+
+    <!-- filtros -->
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.faces</url-pattern>
+    </servlet-mapping>
+
+     <!-- recursos estaticos do spring-faces.jar -->
+     <servlet>
+         <servlet-name>Resources Servlet</servlet-name>
+         <servlet-class>org.springframework.js.resource.ResourceServlet</servlet-class>
+         <load-on-startup>0</load-on-startup>
+     </servlet>
+     <servlet-mapping>
+         <servlet-name>Resources Servlet</servlet-name>
+         <url-pattern>/resources/*</url-pattern>
+     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>
+                 /WEB-INF/config/spring-servlet.xml
+                 /WEB-INF/config/spring-webflow.xml
+            </param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
+        <url-pattern>*.jsf</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+</web-app>

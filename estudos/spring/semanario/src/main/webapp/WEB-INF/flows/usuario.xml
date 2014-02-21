@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+                          start-state="telaBusca">
+
+  <view-state id="telaBusca" view="telaBusca">
+    <transition on="buscar" to="telaListagem" />
+    <transition on="novo" to="telaDetalhe">
+      <evaluate expression="usuarioController.getNewUsuario()" result="flowScope.usuario" />
+    </transition>
+  </view-state>
+
+  <view-state id="telaListagem" view="telaListagem">
+      <on-render>
+        <evaluate expression="usuarioController.find(flowScope.nome)" result="flowScope.usuarioList" />
+      </on-render>
+      <transition on="voltar" to="telaBusca" />
+      <transition on="detalhar" to="telaDetalhe">
+         <evaluate expression="usuarioController.getById(requestParameters.idUsuario)" result="flowScope.usuario"/>
+      </transition>
+  </view-state>
+
+  <view-state id="telaDetalhe" view="telaDetalhe">
+      <transition on="voltar" to="telaListagem" />
+      <transition on="excluir" to="telaBusca">
+          <evaluate expression="usuarioController.delete(flowScope.usuario)"  />
+      </transition>
+      <transition on="salvar" to="telaBusca">
+          <evaluate expression="usuarioController.save(flowScope.usuario)"  />
+      </transition>
+  </view-state>
+
+  <end-state id="fim" view="flowRedirect:usuario" />
+
+
+</flow>
