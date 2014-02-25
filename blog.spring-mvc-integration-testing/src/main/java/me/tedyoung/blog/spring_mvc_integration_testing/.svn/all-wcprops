@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/3/trunk/blog.spring-mvc-integration-testing/src/main/java/me/tedyoung/blog/spring_mvc_integration_testing
+END
+SomeController.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/!svn/ver/3/trunk/blog.spring-mvc-integration-testing/src/main/java/me/tedyoung/blog/spring_mvc_integration_testing/SomeController.java
+END
+SomeRepository.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/!svn/ver/3/trunk/blog.spring-mvc-integration-testing/src/main/java/me/tedyoung/blog/spring_mvc_integration_testing/SomeRepository.java
+END
+MockWebApplicationContextLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/!svn/ver/3/trunk/blog.spring-mvc-integration-testing/src/main/java/me/tedyoung/blog/spring_mvc_integration_testing/MockWebApplicationContextLoader.java
+END
+SomeEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/!svn/ver/3/trunk/blog.spring-mvc-integration-testing/src/main/java/me/tedyoung/blog/spring_mvc_integration_testing/SomeEntity.java
+END
+MockWebApplication.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/!svn/ver/3/trunk/blog.spring-mvc-integration-testing/src/main/java/me/tedyoung/blog/spring_mvc_integration_testing/MockWebApplication.java
+END
+SomeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/!svn/ver/3/trunk/blog.spring-mvc-integration-testing/src/main/java/me/tedyoung/blog/spring_mvc_integration_testing/SomeService.java
+END
